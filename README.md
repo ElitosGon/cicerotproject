@@ -21,7 +21,7 @@ Configuración para Mysql y Django
 ```
 mysql -u root -p
 CREATE DATABASE cicerot CHARACTER SET UTF8;
-CREATE USER cicerot@localhost IDENTIFIED BY 'cicerot';
+CREATE USER cicerot@localhost IDENTIFIED BY 'cicerotpiinfo';
 GRANT ALL PRIVILEGES ON cicerot.* TO cicerot@localhost;
 ```
 Migración: En directorio cicerotproject
