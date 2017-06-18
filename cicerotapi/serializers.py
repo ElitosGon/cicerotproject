@@ -9,6 +9,26 @@ from rest_framework.utils import model_meta
 from rest_framework.compat import set_many
 from rest_framework.validators import UniqueTogetherValidator
 
+class UserSerializers(serializers.ModelSerializer):
+	class Meta:
+		model = auth.models.User
+		fields = ('id', 'username', 'last_login', 'first_name', 'last_name', 'email')
+
+		validators = [
+			validators.UniqueTogetherValidator(
+				queryset = auth.models.User.objects.all(),
+				fields = ('email', ),
+				message = 'Ya existe un usuario registrado con este email',
+			)
+		]
+
+		extra_kwargs = {
+			'username': {'read_only': True},
+			'first_name': {'read_only': True},
+			'last_name': {'read_only': True},
+			'email': {'read_only': True},
+		}
+
 class RegionSerializers(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = models.Region
@@ -67,13 +87,24 @@ class RegistroGuiaSerializers(serializers.HyperlinkedModelSerializer):
 				  'created_at', 'updated_at')
 
 class GuiaSerializers(serializers.HyperlinkedModelSerializer):
+	tags = TagSerializers(many=True, read_only=True)
+	tipos_guia = TipoGuiaSerializers(many=True, read_only=True)
+	registro = RegistroGuiaSerializers(many=False, read_only=True)
+	usuario = UserSerializers(many=False, read_only=True)
+	
 	class Meta:
 		model = models.Guia
 		fields = ('id', 'descripcion_guia', 'clasificacion_guia', 'rut_guia', 'telefono_guia',
-		 		  'celular_guia', 'registro', 'usuario', 'created_at', 'updated_at')
+		 		  'celular_guia', 'tags', 'tipos_guia', 'registro', 'usuario', 'created_at', 'updated_at')
 
 	
 class TourSerializers(serializers.HyperlinkedModelSerializer):
+	tipo_tour = TipoTourSerializers(many=False, read_only=True)
+	estado_tour = EstadoTourSerializers(many=False, read_only=True)
+	comunas = ComunaSerializers(many=True, read_only=True)
+	tags = TagSerializers(many=True, read_only=True)
+	guia = GuiaSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Tour
 		fields = ('id', 'nombre_tour', 'descripcion_tour', 'capacidad_tour', 'precio_tour',
@@ -94,18 +125,25 @@ class PaisSerializers(serializers.HyperlinkedModelSerializer):
 	
 
 class TuristaSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+	pais = PaisSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Turista
 		fields = ('id', 'descripcion_turista', 'usuario', 'pais', 'created_at', 'updated_at')
 	
 
 class ActividadSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Actividad
 		fields = ('id', 'nombre_actividad', 'descripcion_actividad', 'usuario', 'created_at', 'updated_at')
 	
 
 class RolSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Rol
 		fields = ('id', 'nombre_rol', 'usuario', 'created_at', 'updated_at')
@@ -129,6 +167,11 @@ class TipoMultimediaSerializers(serializers.HyperlinkedModelSerializer):
 		fields = ('id', 'nombre_tipo_multimedia', 'created_at', 'updated_at')
 
 class MultimediaSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+	tour = TourSerializers(many=False, read_only=True)
+	tipo_multimedia = TipoMultimediaSerializers(many=False, read_only=True)
+	actividad = ActividadSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Multimedia
 		fields = ('id', 'nombre_multimedia', 'descripcion_multimedia', 'formato_multimedia',
@@ -136,18 +179,26 @@ class MultimediaSerializers(serializers.HyperlinkedModelSerializer):
 				  'created_at', 'updated_at')
 	
 class StaffSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Staff
 		fields = ('id', 'descripcion_staff', 'cargo_staff', 'usuario', 'created_at', 'updated_at')
 	
 
 class FavoritoSerializers(serializers.HyperlinkedModelSerializer):
+	tour = TourSerializers(many=False, read_only=True)
+	turista = TuristaSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Favorito 
 		fields = ('id', 'tipo_favorito', 'turista', 'tour', 'created_at', 'updated_at')
 	
 
 class SuscripcionSerializers(serializers.HyperlinkedModelSerializer):
+	usuario_seguido = UserSerializers(many=False, read_only=True)
+	usuario_seguidor = UserSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Suscripcion
 		fields = ('id', 'usuario_seguidor', 'usuario_seguido', 'created_at', 'updated_at')
@@ -160,6 +211,8 @@ class TransaccionSerializers(serializers.HyperlinkedModelSerializer):
 	
 
 class InstanciaTourSerializers(serializers.HyperlinkedModelSerializer):
+	tour = TourSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.InstanciaTour
 		fields = ('id', 'inicio_instancia_tour', 'fin_instancia_tour', 'cupo_instancia_tour',
@@ -167,6 +220,11 @@ class InstanciaTourSerializers(serializers.HyperlinkedModelSerializer):
 
 	
 class InscripcionSerializers(serializers.HyperlinkedModelSerializer):
+	turista = TuristaSerializers(many=False, read_only=True)
+	transaccion = TransaccionSerializers(many=False, read_only=True)
+	instancia_tour = InstanciaTourSerializers(many=False, read_only=True)
+	evaluacion = EvaluacionSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Inscripcion
 		fields = ('id', 'cupo_inscripcion', 'costo_inscripcion', 'terminos_servicio', 'turista',
@@ -180,6 +238,9 @@ class TipoServicioSerializers(serializers.HyperlinkedModelSerializer):
 
 		
 class ServicioTourSerializers(serializers.HyperlinkedModelSerializer):
+	tipo_servicio = TipoServicioSerializers(many=False, read_only=True)
+	tour = TourSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.ServicioTour
 		fields = ('id', 'descripcion_servicio_tour', 'es_pago_servicio_tour', 'costo_servicio_tour',
@@ -187,11 +248,16 @@ class ServicioTourSerializers(serializers.HyperlinkedModelSerializer):
 
 				
 class ComentarioSerializers(serializers.HyperlinkedModelSerializer):
+	usuario = UserSerializers(many=False, read_only=True)
+	tour = TourSerializers(many=False, read_only=True)
+
 	class Meta:
 		model = models.Comentario
 		fields = ('id', 'texto_comentario', 'usuario', 'tour', 'created_at', 'updated_at')
 	
 class FCMDeviceSerializers(serializers.ModelSerializer):
+	user = UserSerializers(many=False, read_only=True)
+	
 	class Meta:
 		model = FCMModels.FCMDevice
 		fields = ('id', 'name', 'active', 'device_id', 'registration_id', 'type', 'user')
