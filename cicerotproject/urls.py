@@ -26,7 +26,7 @@ urlpatterns = [
     # Admin views
     url(r'^admin/', admin.site.urls),
     # CiceroT web views
-    url(r'^webapp/$', include('cicerotwebapp.urls', namespace='cicerotwebapp')),
+    url(r'^', include('cicerotwebapp.urls', namespace='cicerotwebapp')),
 
     # Other views
     url(r'^i18n/', include(i18n)),
