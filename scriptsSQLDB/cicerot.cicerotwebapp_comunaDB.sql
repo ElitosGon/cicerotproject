@@ -328,7 +328,7 @@ VALUES
 	(326,'Cisnes',46, NOW(), NOW()),
 	(327,'Guaitecas',46, NOW(), NOW()),
 	(328,'Cochrane',47, NOW(), NOW()),
-	(329,'O\'higgins',47, NOW(), NOW()),
+	(329,'O higgins',47, NOW(), NOW()),
 	(330,'Tortel',47, NOW(), NOW()),
 	(331,'Coihaique',48, NOW(), NOW()),
 	(332,'Lago Verde',48, NOW(), NOW()),
