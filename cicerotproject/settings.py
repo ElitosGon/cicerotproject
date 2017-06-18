@@ -37,10 +37,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
-    'cicerotapi',
-    'cicerotintranet',
-    'cicerotwebapp',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    
+
+    'cicerotapi',
+    'cicerotintranet',
+    'cicerotwebapp',
+
+    'social_django',
     'rest_framework',
     'oauth2_provider',
     'fcm_django',
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
 
 # FCM devices config
 FCM_DJANGO_SETTINGS = {
-    #"FCM_SERVER_KEY": "AAAAEzxTTdw:APA91bEY02KuZJpRJFYkbnVMeqRG6JM3y2VaKAETs5_43_4O6zyOhm_Szy2ybnc3oyul_SreHBG3mCWCbtd1eNX9EubbMV9Tmx5SDP6zp9NgcAUYXRGpsT-m5GlvStwdYs_TgyGPqqxw"
+    "FCM_SERVER_KEY": "AAAAhrgcx6o:APA91bHUNLmye_7RhQKzM3J_96mS13MVx1QLk-MNbRVFtc3YpjSFoGvdeJMTDQB-o6ZBYIeVk75TupXu5YihEdQhXnfD7SJGMLezv6bi85trFdcYMydk7cxu6zU_OK64z0CXp1L7tTj8"
 }
 
 # Config rest service
@@ -82,6 +83,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'cicerotproject.urls'
+
 
 TEMPLATES = [
     {
