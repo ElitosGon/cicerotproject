@@ -22,7 +22,12 @@ from rest_framework import routers
 admin.autodiscover()
 
 urlpatterns = [
+    
+    # Admin views
     url(r'^admin/', admin.site.urls),
+    # CiceroT web views
+    url(r'^webapp/$', include('cicerotwebapp.urls', namespace='cicerotwebapp')),
+
     # Other views
     url(r'^i18n/', include(i18n)),
     url(r'^media/(?P<path>.*)$', serve , { 'document_root': settings.MEDIA_ROOT }),
