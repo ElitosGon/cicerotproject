@@ -14,12 +14,12 @@
         <div class="row">
           <div class="col-md-6">
             <h2>Acerca de CiceroT</h2>
-            <p>We Are Professional</p>
+            <p>Plataforma para comunicar guías turisticos con turistas</p>
           </div>
           <div class="col-md-6">
             <ul class="breadcrumbs">
-              <li><a href="#">Home</a></li>
-              <li>About Us</li>
+              <li><a href="{% url 'cicerotwebapp:home' %}">Home</a></li>
+              <li>Acerca de CiceroT</li>
             </ul>
           </div>
         </div>
@@ -39,11 +39,11 @@
             <div class="col-md-7">
 
               <!-- Classic Heading -->
-              <h4 class="classic-title"><span>Welcome To Our Agency</span></h4>
+              <h4 class="classic-title"><span>Bienvenido a CiceroT</span></h4>
 
               <!-- Some Text -->
-              <p>Lorem Ipsum is simply dummy text of the <a title="Simple Tooltip" href="#" class="itl-tooltip" data-placement="top">printing</a> and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-              <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Sed ut perspiciatis unde omnis iste natus error sit volup accusantium. Lorem ipsum dolor sit amet, consectetur.</p>
+              <p> Cicerot es una plataforma <b>online</b> que permite que los turistas encuentren una experiencia única a precios convenientes. Dentro de la plataforma se encontrara una gran variedad de oferta de servicios turísticos, en particular los ofrecidos por guías turísticos o cicerones. Los servicios ofrecidos por los cicerones serán definidos por estos, permitiendo así que la variedad de actividades y panoramas sea ilimitada. Luego de que los turistas encuentren la experiencia que buscan, el pago se llevara a cabo de forma segura mediante la misma plataforma.</p>
+              <p>Con <b>CiceroT</b> se busca promover la industria del turismo a nivel nacional, junto con la formalización de los cicerones de todos el país. También se quiere fomentar el desarrollo turístico en zonas donde el turismo es nulo o emergente, permitiendo que cualquier persona que se considere apta para ofrecer este tipo de servicio, lo realice de manera simple con la ayuda de CiceroT. Se busca promover el trabajo independiente o asociativo entre cicerones de diversas zonas del país, potenciando así la industria nacional y porque no la internacional.</p>
 
             </div>
 
@@ -69,94 +69,12 @@
             <div class="col-md-6">
 
               <!-- Classic Heading -->
-              <h4 class="classic-title"><span>Our Skills</span></h4>
+              <h4 class="classic-title"><span> Obejtivo General </span></h4>
 
               <div class="skill-shortcode">
-                <div class="skill">
-                  <p>Web Design</p>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" data-percentage="60">
-                      <span class="progress-bar-span">60%</span>
-                      <span class="sr-only">60% Complete</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill">
-                  <p>Wordpress</p>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" data-percentage="80">
-                      <span class="progress-bar-span">80%</span>
-                      <span class="sr-only">60% Complete</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill">
-                  <p>CSS 3</p>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" data-percentage="90">
-                      <span class="progress-bar-span">90%</span>
-                      <span class="sr-only">60% Complete</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="skill">
-                  <p>HTML 5</p>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" data-percentage="100">
-                      <span class="progress-bar-span">100%</span>
-                      <span class="sr-only">60% Complete</span>
-                    </div>
-                  </div>
-                </div>
+                <p>Con este proyecto buscamos ser un aporte en el continuo y sostenido aumento que ha tenido el turismo en el país, siendo un rubro que en los últimos años ha transformado en una pieza clave dentro de la economía nacional. Para ello CiceroT será el inicio de una nueva manera de ofrecer y también contactar servicios de turismo, en donde la transparencia y eficiencia en la búsqueda de guías turísticos será la principal característica. Además de poder dar tribuna a pequeñas agencias o familias que deseen sacar provecho de atractivos turísticos de su zona, generando así nichos de trabajo y fortalecer economías locales. </p>
               </div>
 
-            </div>
-
-            <div class="col-md-6">
-
-              <!-- Classic Heading -->
-              <h4 class="classic-title"><span>Our Solutions</span></h4>
-
-              <!-- Accordion -->
-              <div class="panel-group" id="accordion">
-
-                <!-- Start Accordion 1 -->
-                <div class="panel panel-default">
-                  <!-- Toggle Heading -->
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
-                        <i class="fa fa-angle-up control-icon"></i>
-                        <i class="fa fa-desktop"></i> Fully Responsive Theme
-                      </a>
-                    </h4>
-                  </div>
-                  <!-- Toggle Content -->
-                  <div id="collapse-1" class="panel-collapse collapse in">
-                    <div class="panel-body"><img class="img-thumbnail image-text" style="float:left; width:150px;" alt="" src="{% static 'margo/images/bussniss-pic.jpg'%}" /> <strong class="accent-color">Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <strong>printer</strong> took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
-                  </div>
-                </div>
-                <!-- End Accordion 1 -->
-
-                <!-- Start Accordion 2 -->
-                <div class="panel panel-default">
-                  <!-- Toggle Heading -->
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse-2" class="collapsed">
-                        <i class="fa fa-angle-up control-icon"></i>
-                        <i class="fa fa-gift"></i> Touchable Slider
-                      </a>
-                    </h4>
-                  </div>
-                  <!-- Toggle Content -->
-                  <div id="collapse-2" class="panel-collapse collapse">
-                    <div class="panel-body">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. The point of using Lorem Ipsum is that it has a <strong>more-or-less</strong> normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                  </div>
-                </div>
-                <!-- End Accordion 2 -->
-
-              </div>
             </div>
 
           </div>
@@ -165,22 +83,23 @@
           <div class="hr1" style="margin-bottom:50px;"></div>
 
           <!-- Classic Heading -->
-          <h4 class="classic-title"><span>Our Creative Team</span></h4>
+          <h4 class="classic-title"><span>Nuestro equipo</span></h4>
 
           <!-- Start Team Members -->
           <div class="row">
 
             <!-- Start Memebr 1 -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="team-member">
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
-                  <img alt="" src="{% static 'margo/images/team/face_1.png' %}" />
-                  <div class="member-name">John Doe <span>Developer</span></div>
+                  <img alt="" src="{% static 'media/team/v2_Elías.png' %}" />
+                  <div class="member-name">Elías Gonzźalez M <span>Experto Comercial</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <br>
+                  <p>Se encarga de todas las tareas asociadas al área comercial, relacionadas con la comercialización de los productos y/o servicios ofrecidos por la empresa, marketing y ventas.</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
@@ -195,16 +114,17 @@
             <!-- End Memebr 1 -->
 
             <!-- Start Memebr 2 -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="team-member">
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
-                  <img alt="" src="{% static 'margo/images/team/face_2.png' %}" />
-                  <div class="member-name">Silly Sally <span>Developer</span></div>
+                  <img alt="" src="{% static 'media/team/v2_Isra.png' %}" />
+                  <div class="member-name">Israel Martinez <span>Experto Legal</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <br>
+                  <p>Experto en aspectos legales, ademas se encuentra encargado de entregar soporte a las otras áreas de la empresa.</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
@@ -219,16 +139,17 @@
             <!-- End Memebr 2 -->
 
             <!-- Start Memebr 3 -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="team-member">
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
-                  <img alt="" src="{% static 'margo/images/team/face_3.png' %}" />
-                  <div class="member-name">Chris John <span>Developer</span></div>
+                  <img alt="" src="{% static 'media/team/v2_Ian.png' %}" />
+                  <div class="member-name">Ian Orellana <span>Experto Finanzas</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <br>
+                  <p>Experto en administración de recursos, contabilidad y finanzas. Esta a cargo de los aspectos financieros y el manejo de recursos humanos de la empresa.</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
@@ -243,16 +164,17 @@
             <!-- End Memebr 3 -->
 
             <!-- Start Memebr 4 -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="team-member">
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
-                  <img alt="" src="{% static 'margo/images/team/face_4.png' %}" />
-                  <div class="member-name">Sara John <span>Developer</span></div>
+                  <img alt="" src="{% static 'media/team/v2_Pablo.png' %}" />
+                  <div class="member-name">Pablo Zurita <span>Experto Técnico</span></div>
                 </div>
                 <!-- Memebr Words -->
                 <div class="member-info">
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                  <br>
+                  <p>Experto en el área de TI. Se encarga de los todos los aspectos que involucren del desarrollo, gestión, mantención ,producción de tecnología, entre otros. Ademas de entregar soporte de TI a las otras áreas.</p>
                 </div>
                 <!-- Memebr Social Links -->
                 <div class="member-socail">
@@ -266,6 +188,31 @@
             </div>
             <!-- End Memebr 4 -->
 
+            <!-- Start Memebr 5 -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="team-member">
+                <!-- Memebr Photo, Name & Position -->
+                <div class="member-photo">
+                  <img alt="" src="{% static 'media/team/v2_Carlos.png' %}" />
+                  <div class="member-name">Carlos Caceres <span>Experto Técnico</span></div>
+                </div>
+                <!-- Memebr Words -->
+                <div class="member-info">
+                  <br>
+                  <p>Experto en el área de TI. Se encarga de los todos los aspectos que involucren del desarrollo, gestión, mantención ,producción de tecnología, entre otros. Ademas de entregar soporte de TI a las otras áreas.</p>
+                </div>
+                <!-- Memebr Social Links -->
+                <div class="member-socail">
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                  <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
+                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- End Memebr 5 -->
+
           </div>
           <!-- End Team Members -->
 
@@ -276,7 +223,7 @@
           <div class="our-clients">
 
             <!-- Classic Heading -->
-            <h4 class="classic-title"><span>Our Happy Clients</span></h4>
+            <h4 class="classic-title"><span>Turistas Felices</span></h4>
 
             <div class="clients-carousel custom-carousel touch-carousel" data-appeared-items="5">
 
