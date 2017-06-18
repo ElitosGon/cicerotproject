@@ -30,7 +30,7 @@ SECRET_KEY = '_@9go9rixc73y7ecqv+nsmcjt!2j9a^e=6_qhrucujd!kaut!c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['162.243.186.222', '162.243.186.222:8000']
+ALLOWED_HOSTS = ['162.243.186.222', '162.243.186.222:8000', '127.0.0.1:8000', '127.0.0.1']
 
 
 # Application definition
@@ -59,16 +59,6 @@ INSTALLED_APPS = [
 # FCM devices config
 FCM_DJANGO_SETTINGS = {
     "FCM_SERVER_KEY": "AAAAhrgcx6o:APA91bHUNLmye_7RhQKzM3J_96mS13MVx1QLk-MNbRVFtc3YpjSFoGvdeJMTDQB-o6ZBYIeVk75TupXu5YihEdQhXnfD7SJGMLezv6bi85trFdcYMydk7cxu6zU_OK64z0CXp1L7tTj8"
-}
-
-# Config rest service
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES' : (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
 }
 
 

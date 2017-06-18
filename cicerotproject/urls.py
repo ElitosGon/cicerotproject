@@ -18,6 +18,7 @@ from django.contrib import admin, admindocs
 from django.conf import settings
 from django.views.static import serve
 from rest_framework import routers
+from cicerotapi import urls
 
 admin.autodiscover()
 
@@ -33,5 +34,8 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', serve , { 'document_root': settings.MEDIA_ROOT }),
     url(r'^static/(?P<path>.*)$', serve , { 'document_root':settings.STATIC_ROOT }),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+
+    # API URLS
+    url(r'^api/', include('cicerotapi.urls', namespace='api')),
 ]
 
