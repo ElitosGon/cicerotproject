@@ -70,7 +70,7 @@ class GuiaSerializers(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = models.Guia
 		fields = ('id', 'descripcion_guia', 'clasificacion_guia', 'rut_guia', 'telefono_guia',
-		 		  'celular_guia', 'tags', 'tipos_guia', 'registro', 'usuario', 'created_at', 'updated_at')
+		 		  'celular_guia', 'tipos_guia', 'registro', 'usuario', 'created_at', 'updated_at')
 
 	
 class TourSerializers(serializers.HyperlinkedModelSerializer):
