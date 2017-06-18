@@ -28,4 +28,46 @@ def Home(request):
 	else:
 		return render(request,'404.html', None, RequestContext(request))
 
-		
+
+def AboutUs(request):
+	if request.method == 'GET':
+		return render(request,'about_us.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def FAQs(request):
+	if request.method == 'GET':
+		return render(request,'faqs.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def OurServices(request):
+	if request.method == 'GET':
+		return render(request,'servicios.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+
+def ContactUs(request):
+	if request.method == 'GET':
+		return render(request,'contact_us.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def GetAllGuias(request):
+	if request.method == 'GET':
+		return render(request,'guias.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def GetAllLugares(request):
+	if request.method == 'GET':
+		return render(request,'lugares.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def GetTour(request):
+	if request.method == 'GET':
+		return render(request,'tour.html', None , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))

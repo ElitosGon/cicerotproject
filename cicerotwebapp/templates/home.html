@@ -85,7 +85,7 @@
   <!-- Full Body Container -->
   <div id="container">
 
-
+    {% block menu %}
     <!-- Start Header Section -->
     <div class="hidden-header"></div>
     <header class="clearfix">
@@ -159,7 +159,7 @@
               <li>
                 <a class="active" href="{% url 'cicerotwebapp:home' %}">Home</a>
                 <ul class="dropdown">
-                  <li><a class="active" href="#">Acceso Guias</a>
+                  <li><a href="#">Acceso Guias</a>
                   </li>
                   <li><a href="#">Acceso Turistas</a>
                   </li>
@@ -168,24 +168,26 @@
               <li>
                 <a href="#">Conocenos</a>
                  <ul class="dropdown">
-                  <li><a class="active" href="#">Acerca de CiceroT</a>
+                  <li><a href="{% url 'cicerotwebapp:aboutUs'%}">Acerca de CiceroT</a>
                   </li>
-                  <li><a href="#">Nuestros servicios</a>
+                  <li><a href="{% url 'cicerotwebapp:servicios'%}">Nuestros servicios</a>
                   </li>
-                  <li><a href="#">Preguntas frecuentes</a>
+                  <li><a href="{% url 'cicerotwebapp:faqs' %}">Preguntas frecuentes</a>
                   </li>
                 </ul>
               </li>
               <li>
                 <a href="#">Destinos</a>
                 <ul class="dropdown">
-                  <li><a href="#">Guias</a>
+                  <li><a href="{% url 'cicerotwebapp:GetAllGuias' %}">Guias</a>
                   </li>
-                  <li><a href="#">Lugares</a>
+                  <li><a href="{% url 'cicerotwebapp:GetAllLugares'%}">Lugares</a>
+                  </li>
+                  <li><a href="{% url 'cicerotwebapp:GetTour'%}">Tour</a>
                   </li>
                 </ul>
               </li>
-              <li><a href="#">Escribenos</a>
+              <li><a href="{% url 'cicerotwebapp:contactUs' %}">Escribenos</a>
               </li>
             </ul>
             <!-- End Navigation List -->
@@ -206,25 +208,27 @@
           <li>
             <a href="#">Conocenos</a>
             <ul class="dropdown">
-              <li><a href="#">Acerca de CiceroT</a>
+              <li><a href="{% url 'cicerotwebapp:aboutUs'%}">Acerca de Cicerot</a>
               </li>
-              <li><a href="#">Nuestros servicios</a>
+              <li><a href="{% url 'cicerotwebapp:servicios'%}">Nuestros servicios</a>
               </li>
-              <li><a href="#">Preguntas frecuentes</a>
+              <li><a href="{% url 'cicerotwebapp:faqs' %}">Preguntas frecuentes</a>
               </li>
             </ul>
           </li>
           <li>
             <a href="#">Destinos</a>
             <ul class="dropdown">
-              <li><a href="#">Guias</a>
+              <li><a href="{% url 'cicerotwebapp:GetAllGuias' %}">Guias</a>
               </li>
-              <li><a href="#">Lugares</a>
+              <li><a href="{% url 'cicerotwebapp:GetAllLugares'%}">Lugares</a>
+              </li>
+              <li><a href="{% url 'cicerotwebapp:GetTour'%}">Tour</a>
               </li>
             </ul>
           </li>
           <li>
-            <a href="#">Escribenos</a>
+            <a href="{% url 'cicerotwebapp:contactUs' %}">Escribenos</a>
           </li>
         </ul>
         <!-- Mobile Menu End -->
@@ -234,8 +238,9 @@
 
     </header>
     <!-- End Header Section -->
+    {% endblock %}
 
-
+    {% block content %}
     <!-- Start Home Page Slider -->
     <section id="home">
       <!-- Carousel -->
@@ -719,6 +724,95 @@
     <!-- End Testimonials Section -->
 
 
+
+    <div>
+      <div class="container">
+           <!-- Start Features -->
+            <div class="hr5" style="margin-top:50px; margin-bottom:55px;"></div>
+
+            <div class="row">
+            <div class="big-title text-center">
+            <h1>The Most <span class="accent-color">Flexible</span> &amp; <span class="accent-color">Easy</span> To Use Theme.</h1>
+            <p class="title-desc">Lorem Ipsum is simply dummy text of the typesetting industry.</p>
+            </div>
+             
+             
+            <div class="hr1" style="margin-top:20px; margin-bottom:20px;"></div>
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-magic icon-mini-effect icon-effect-3 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>High Quality Theme</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-magic icon-mini-effect icon-effect-3 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>High Quality Theme</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-magic icon-mini-effect icon-effect-3 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>High Quality Theme</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-rocket icon-mini-effect icon-effect-6 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>Fast &amp; Light Theme</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-eye icon-mini-effect icon-effect-5 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>Retina Display Ready</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+             
+            <div class="col-md-4 service-box service-icon-left">
+            <div class="service-icon">
+            <i class="fa fa-pencil icon-mini-effect icon-effect-4 gray-icon"></i>
+            </div>
+            <div class="service-content">
+            <h4>Clean Modern Code</h4>
+            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia dolores.</p>
+            </div>
+            </div>
+             
+            </div>
+            <div class="hr5" style="margin-top:50px; margin-bottom:55px;"></div>
+            <!-- end features -->
+
+      </div>
+    </div>
+
+
+
     <!-- Start Team Member Section -->
     <div class="section" style="background:#fff;">
       <div class="container">
@@ -1159,6 +1253,7 @@
     </div>
     <!-- End Client/Partner Section -->
 
+    {% endblock %}
 
     <!-- Start Footer Section -->
     <footer>

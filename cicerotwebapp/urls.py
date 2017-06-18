@@ -6,6 +6,16 @@ from django.contrib.auth.views import  password_reset_done, password_reset_compl
 urlpatterns = [
       # Home
       url(r'^$', general_views.Home, name= "home"), 
+      url(r'^about_us/$', general_views.AboutUs, name="aboutUs"),
+      url(r'^faqs/$', general_views.FAQs, name="faqs"),
+      url(r'^servicios/$', general_views.OurServices, name="servicios"),
+      url(r'^contact_us/$', general_views.ContactUs, name="contactUs"),
+
+
+      # SERVICIOS
+      url(r'^guias/$', general_views.GetAllGuias, name="GetAllGuias"),
+      url(r'^lugares/', general_views.GetAllLugares, name="GetAllLugares"),
+      url(r'^toureg/', general_views.GetTour, name="GetTour"),
 
 ]
 
