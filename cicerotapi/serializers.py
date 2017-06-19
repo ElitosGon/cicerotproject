@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from cicerotwebapp import models
+from django.db import models as myFields
 from fcm_django import models as FCMModels
 from django.contrib import auth 
 from rest_framework import validators
@@ -10,6 +11,7 @@ from rest_framework.compat import set_many
 from rest_framework.validators import UniqueTogetherValidator
 
 class UserSerializers(serializers.ModelSerializer):
+
 	class Meta:
 		model = auth.models.User
 		fields = ('id', 'username', 'last_login', 'first_name', 'last_name', 'email')
@@ -86,31 +88,7 @@ class RegistroGuiaSerializers(serializers.HyperlinkedModelSerializer):
 				  'inicio_sello_q_registro', 'fin_sello_q_registro', 'tipo_personalidad_registro',
 				  'created_at', 'updated_at')
 
-class GuiaSerializers(serializers.HyperlinkedModelSerializer):
-	tags = TagSerializers(many=True, read_only=True)
-	tipos_guia = TipoGuiaSerializers(many=True, read_only=True)
-	registro = RegistroGuiaSerializers(many=False, read_only=True)
-	usuario = UserSerializers(many=False, read_only=True)
-	
-	class Meta:
-		model = models.Guia
-		fields = ('id', 'descripcion_guia', 'clasificacion_guia', 'rut_guia', 'telefono_guia',
-		 		  'celular_guia', 'tags', 'tipos_guia', 'registro', 'usuario', 'created_at', 'updated_at')
 
-	
-class TourSerializers(serializers.HyperlinkedModelSerializer):
-	tipo_tour = TipoTourSerializers(many=False, read_only=True)
-	estado_tour = EstadoTourSerializers(many=False, read_only=True)
-	comunas = ComunaSerializers(many=True, read_only=True)
-	tags = TagSerializers(many=True, read_only=True)
-	guia = GuiaSerializers(many=False, read_only=True)
-
-	class Meta:
-		model = models.Tour
-		fields = ('id', 'nombre_tour', 'descripcion_tour', 'capacidad_tour', 'precio_tour',
-				  'es_oferta', 'tipo_tour', 'estado_tour', 'comunas', 'tags', 'guia', 'created_at', 'updated_at')
-	
-		
 class HorarioSerializers(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = models.Horario
@@ -161,6 +139,33 @@ class EvaluacionSerializers(serializers.HyperlinkedModelSerializer):
 		fields = ('id', 'puntuacion_tiempo_evaluacion', 'puntuacion_calidad_evaluacion',
 				  'puntuacion_cumplimiento_evaluacion', 'comentario_evaluacion', 'created_at', 'updated_at')
 
+
+class GuiaSerializers(serializers.HyperlinkedModelSerializer):
+	tags = TagSerializers(many=True, read_only=True)
+	tipos_guia = TipoGuiaSerializers(many=True, read_only=True)
+	registro = RegistroGuiaSerializers(many=False, read_only=True)
+	usuario = UserSerializers(many=False, read_only=True)
+	
+	class Meta:
+		model = models.Guia
+		fields = ('id', 'descripcion_guia', 'clasificacion_guia', 'rut_guia', 'telefono_guia',
+		 		  'celular_guia', 'tags', 'tipos_guia', 'registro', 'usuario', 'created_at', 'updated_at')
+
+	
+class TourSerializers(serializers.HyperlinkedModelSerializer):
+	tipo_tour = TipoTourSerializers(many=False, read_only=True)
+	estado_tour = EstadoTourSerializers(many=False, read_only=True)
+	comunas = ComunaSerializers(many=True, read_only=True)
+	tags = TagSerializers(many=True, read_only=True)
+	guia = GuiaSerializers(many=False, read_only=True)
+
+	class Meta:
+		model = models.Tour
+		fields = ('id', 'nombre_tour', 'descripcion_tour', 'capacidad_tour', 'precio_tour',
+				  'es_oferta', 'latitud', 'longitud', 'tipo_tour', 'estado_tour', 'comunas', 'tags', 'guia', 'created_at', 'updated_at')
+	
+		
+
 class TipoMultimediaSerializers(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = models.TipoMultimedia
@@ -177,6 +182,8 @@ class MultimediaSerializers(serializers.HyperlinkedModelSerializer):
 		fields = ('id', 'nombre_multimedia', 'descripcion_multimedia', 'formato_multimedia',
 				  'archivo_multimedia', 'tour', 'tipo_multimedia', 'usuario', 'actividad',
 				  'created_at', 'updated_at')
+
+
 	
 class StaffSerializers(serializers.HyperlinkedModelSerializer):
 	usuario = UserSerializers(many=False, read_only=True)
