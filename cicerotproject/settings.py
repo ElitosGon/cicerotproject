@@ -30,7 +30,7 @@ SECRET_KEY = '_@9go9rixc73y7ecqv+nsmcjt!2j9a^e=6_qhrucujd!kaut!c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['162.243.186.222', '162.243.186.222:8000', '127.0.0.1:8000', '127.0.0.1']
+ALLOWED_HOSTS = ['162.243.186.222', '162.243.186.222:8000', '127.0.0.1:8000', '127.0.0.1', 'www.cicerot.tk', 'cicerot.tk']
 
 
 # Application definition
