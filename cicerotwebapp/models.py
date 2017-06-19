@@ -160,6 +160,8 @@ class Tour(models.Model):
 	capacidad_tour = models.IntegerField(verbose_name="Capacidad Tour", null=True, blank=True) 
 	precio_tour = models.IntegerField(verbose_name="Precio Tour", null=True, blank=True) 
 	es_oferta = models.BooleanField(default=False, verbose_name="¿Tour en oferta?", blank=True)
+	latitud = models.CharField(max_length=100, verbose_name="Latitud", null=True, blank=True)
+	longitud = models.CharField(max_length=100, verbose_name="Longitud", null=True, blank=True)
 
 	# RELATION FIELD
 	tipo_tour = models.ForeignKey(TipoTour, verbose_name="Tipo tour", null=True, blank=True) 

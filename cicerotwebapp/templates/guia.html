@@ -1,0 +1,331 @@
+{% extends "home.html" %}
+<!-- field atributes modificaciones / atributo concreto form.nombre-->
+{{ form.media.css }}
+
+{% load static %}
+
+{{ form.media.css }}
+
+{% block content %}
+
+    <!-- Start Page Banner -->
+    <div class="page-banner" style="padding:40px 0; background: url('{% static 'margo/images/slide-02-bg.jpg'%}') center #f9f9f9;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Guia</h2>
+            <p>Perfil Guía Turístico</p>
+          </div>
+          <div class="col-md-6">
+            <ul class="breadcrumbs">
+              <li><a href="{% url 'cicerotwebapp:home' %}">Home</a></li>
+              <li>Perfil Guía</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="page-content">
+
+
+          <div class="row">
+
+            <div class="col-md-3">
+
+              <!-- Classic Heading -->
+              <h4 class="classic-title"><span>Perfil del guía</span></h4>
+              <div class="team-member">
+                <!-- Memebr Photo, Name & Position -->
+                <div class="member-photo">
+                  <img alt="" src="{{guia.usuario.multimedia_set.all.0.archivo_multimedia.url}}" />
+                  <div class="member-name">{{guia.usuario.first_name}} {{guia.usuario.last_name}} - {{guia.clasificacion_guia}} <i class="fa fa-star"></i> <span>Guía Turístico</span></div>
+                </div>
+                <!-- Memebr Words -->
+                <div class="member-info">
+                  <p class="">{{guia.descripcion_guia}}</p>...
+                </div>
+                <!-- Memebr Social Links -->
+                <div class="member-socail">
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                  <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
+                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
+                </div>
+                <div class="member-info">
+                  Etiquetas: {% for tag in guia.tags.all %}
+                    <a href="#">{{tag.texto_tag}}</a>,
+                  {% endfor %}
+                </div>
+                <div class="member-info">
+                  Tipo de Guía: {% for tipo in guia.tipos_guia.all %}
+                    <a href="#">{{tipo.nombre_tipo_guia}}</a>,
+                  {% endfor %}
+                </div>
+              </div>
+              <!-- Some Text -->
+              
+              <p> </p>
+
+            </div>
+
+            <div class="col-md-9">
+
+             <div class="panel-group" id="accordion">
+ 
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-4">
+                <i class="fa fa-angle-up control-icon"></i>
+                <i class="fa fa-info"></i> Información Guia
+                </a>
+                </h4>
+                </div>
+                <div id="collapse-4" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul>
+                   <li><i class="fa fa-caret-right"></i> Nombre: {{guia.usuario.first_name}} {{guia.usuario.last_name}}</li>
+                   <li><i class="fa fa-caret-right"></i> Ciudad: Santigo - Región: Metropolitana</li>
+                   <li><i class="fa fa-caret-right"></i> Idiomas: Español </li>
+                   <li><i class="fa fa-caret-right"></i> Rut: {{guia.rut}}</li>
+                   <li><i class="fa fa-caret-right"></i> Télefono: {{guia.telefono_guia}}</li>
+                   <li><i class="fa fa-caret-right"></i> Télefono: {{celular.celular_guia}}</li>
+                   <li><i class="fa fa-caret-right"></i> Rut: {{guia.rut}}</li>
+                  </ul>
+                  
+
+                </div>
+                </div>
+                </div>
+
+                 <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-3">
+                <i class="fa fa-angle-up control-icon"></i>
+                <i class="fa fa-info"></i> Registro Guía
+                </a>
+                </h4>
+                </div>
+                <div id="collapse-3" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul>
+                   <li><i class="fa fa-caret-right"></i> Dirección Guía: {{guia.registro.direccion_guia_registro}}</li>
+                   <li><i class="fa fa-caret-right"></i> Razon social: {{guia.registro.razon_social_guia_registro}}</li>
+                   <li><i class="fa fa-caret-right"></i> Representante legal: {{guia.registro.representante_legal_guia_registro}} </li>
+                   <li><i class="fa fa-caret-right"></i> Tiene sello Q : {% if guia.registro.es_sello_q_registro%} Si {% else %} No {% endif %}</li>
+                  </ul>
+                  
+
+                </div>
+                </div>
+                </div>
+
+             </div>
+
+             <h1 class="classic-title"> Tours </h1>
+             {% for tour in guia.tour.all %}
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-4">
+                <i class="fa fa-angle-up control-icon"></i>
+                <i class="fa fa-info"></i> Tour: {{tour.nombre_tour}} {% if tour.es_oferta %} ***** OFERTA ***** {% endif %}
+                </a>
+                </h4>
+                </div>
+                <div id="collapse-4" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="row">
+                      <dir class="col-md-4">
+                        <img src="{{tour.multimedia_set.all.0.archivo_multimedia.url}}">
+                      </dir>
+                      <dir class="col-md-8">
+                          <ul>
+                             <li><i class="fa fa-caret-right"></i> Nombre Tour {{tour.nombre_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Descripción: {{tour.descripcion_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Capacidad: {{tour.capacidad_tour}} </li>
+                             <li><i class="fa fa-caret-right"></i> Precio: ${{tour.precio_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Tipo Tour: {{tour.tipo_tour.nombre_tipo_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Comunas: {% for c in tour.comunas.all %} c.nombre_comuna - {% endfor %}</li>
+                             <li><i class="fa fa-caret-right"></i> Tags: {% for t in tour.tag_set.all %} t.texto_tag {% endfor %}</li>
+                            </ul>
+                      </dir>
+                      <div class="col-md-12">
+                          <div id="map" data-position-latitude="{{tour.latitud}}" data-position-longitude="{{tour.longitud}}"></div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+
+             {% endfor %}
+            </div>
+
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+    <!-- End content -->
+    
+    <script>
+      (function($) {
+        $.fn.CustomMap = function(options) {
+
+          var posLatitude = $('#map').data('position-latitude'),
+            posLongitude = $('#map').data('position-longitude');
+
+          var settings = $.extend({
+            home: {
+              latitude: posLatitude,
+              longitude: posLongitude
+            },
+            text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+            icon_url: $('#map').data('marker-img'),
+            zoom: 15
+          }, options);
+
+          var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+
+          return this.each(function() {
+            var element = $(this);
+
+            var options = {
+              zoom: settings.zoom,
+              center: coords,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: false,
+              scaleControl: false,
+              streetViewControl: false,
+              panControl: true,
+              disableDefaultUI: true,
+              zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.DEFAULT
+              },
+              overviewMapControl: true,
+            };
+
+            var map = new google.maps.Map(element[0], options);
+
+            var icon = {
+              url: settings.icon_url,
+              origin: new google.maps.Point(0, 0)
+            };
+
+            var marker = new google.maps.Marker({
+              position: coords,
+              map: map,
+              icon: icon,
+              draggable: false
+            });
+
+            var info = new google.maps.InfoWindow({
+              content: settings.text
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              info.open(map, marker);
+            });
+
+            var styles = [{
+              "featureType": "landscape",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 65
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "poi",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 51
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "road.highway",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "road.arterial",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 30
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "road.local",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "lightness": 40
+              }, {
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "transit",
+              "stylers": [{
+                "saturation": -100
+              }, {
+                "visibility": "simplified"
+              }]
+            }, {
+              "featureType": "administrative.province",
+              "stylers": [{
+                "visibility": "on"
+              }]
+            }, {
+              "featureType": "water",
+              "elementType": "labels",
+              "stylers": [{
+                "visibility": "on"
+              }, {
+                "lightness": -25
+              }, {
+                "saturation": -100
+              }]
+            }, {
+              "featureType": "water",
+              "elementType": "geometry",
+              "stylers": [{
+                "hue": "#ffff00"
+              }, {
+                "lightness": -25
+              }, {
+                "saturation": -97
+              }]
+            }];
+
+            map.setOptions({
+              styles: styles
+            });
+          });
+
+        };
+      }(jQuery));
+
+      jQuery(document).ready(function() {
+        jQuery('#map').CustomMap();
+      });
+    </script>
+    <!-- End Map -->
+
+{% endblock %}
+

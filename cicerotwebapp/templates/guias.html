@@ -48,11 +48,13 @@
             <!-- Start Memebr 1 -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="team-member">
+                <a href="{% url 'cicerotwebapp:GetGuia' guia.id %}">
                 <!-- Memebr Photo, Name & Position -->
                 <div class="member-photo">
                   <img alt="" src="{{guia.usuario.multimedia_set.all.0.archivo_multimedia.url}}" />
                   <div class="member-name">{{guia.usuario.first_name}} {{guia.usuario.last_name}} - {{guia.clasificacion_guia}} <i class="fa fa-star"></i> <span>Guía Turístico</span></div>
                 </div>
+                </a>
                 <!-- Memebr Words -->
                 <div class="member-info">
                   <p class="descrip">{{guia.descripcion_guia}}</p>...

@@ -24,7 +24,11 @@ CRITICAL = 50
 ####### HOME #####################################
 def Home(request):
 	if request.method == 'GET':
-		return render(request,'home.html', None , RequestContext(request))
+		guias = models.Guia.objects.all().order_by('-updated_at')[:4]
+		contexto = {
+		 'guias' :guias,
+		}
+		return render(request,'home.html', contexto , RequestContext(request))
 	else:
 		return render(request,'404.html', None, RequestContext(request))
 
@@ -86,6 +90,21 @@ def GetAllGuias(request):
 		}
 
 		return render(request,'guias.html', contexto , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
+
+def GetGuia(request, id):
+	if request.method == 'GET':
+		try:
+			guia = models.Guia.objects.get(pk=id)
+		except models.Guia.DoesNotExist:
+			raise Http404
+		
+		contexto = {
+			'guia' : guia,
+		}
+
+		return render(request,'guia.html', contexto , RequestContext(request))
 	else:
 		return render(request,'404.html', None, RequestContext(request))
 

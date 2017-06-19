@@ -14,6 +14,8 @@ urlpatterns = [
 
       # SERVICIOS
       url(r'^guias/$', general_views.GetAllGuias, name="GetAllGuias"),
+      url(r'^guias/perfil/(?P<id>\d+)/$', general_views.GetGuia, name="GetGuia"),
+
       url(r'^lugares/', general_views.GetAllLugares, name="GetAllLugares"),
       url(r'^toureg/', general_views.GetTour, name="GetTour"),
 

@@ -642,191 +642,44 @@
 
         <!-- Start Team Members -->
         <div class="row">
-
-          <!-- Start Memebr 1 -->
-          <div class="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="03">
-            <div class="team-member modern">
-              <!-- Memebr Photo, Name & Position -->
-              <div class="member-photo">
-                <img alt="" src="{% static 'margo/images/team/face_1.png' %}" />
-                <div class="member-name">Antonio Jiménez <span>5 <i class="fa fa-star"></i></span>
+          {% for guia in guias %}
+            <!-- Start Memebr 1 -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="team-member">
+                <a href="{% url 'cicerotwebapp:GetGuia' guia.id %}">
+                <!-- Memebr Photo, Name & Position -->
+                <div class="member-photo">
+                  <img alt="" src="{{guia.usuario.multimedia_set.all.0.archivo_multimedia.url}}" />
+                  <div class="member-name">{{guia.usuario.first_name}} {{guia.usuario.last_name}} - {{guia.clasificacion_guia}} <i class="fa fa-star"></i> <span>Guía Turístico</span></div>
                 </div>
-              </div>
-              <!-- Memebr Words -->
-              <div class="member-info">
-                <p>Santiago de Chile - Región Metropolitana - Español - Francés - Inglés.</p>
-              </div>
-              <!-- Start Progress Bar 1 -->
-              <div class="progress-label">City Tour</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="96%" data-appear-animation-delay="400">
-                  <span class="percentage">96%</span>
+                </a>
+                <!-- Memebr Words -->
+                <div class="member-info">
+                  <p class="descrip">{{guia.descripcion_guia}}</p>...
                 </div>
-              </div>
-              <!-- Start Progress Bar 2 -->
-              <div class="progress-label">Trekking</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="88%" data-appear-animation-delay="800">
-                  <span class="percentage">88%</span>
+                <!-- Memebr Social Links -->
+                <div class="member-socail">
+                  <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                  <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
+                  <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                  <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
+                  <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
                 </div>
-              </div>
-              <!-- Start Progress Bar 3 -->
-              <div class="progress-label">Grastronomía</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="100%" data-appear-animation-delay="1200">
-                  <span class="percentage">100%</span>
+                <div class="member-info">
+                  Etiquetas: {% for tag in guia.tags.all %}
+                    <a href="#">{{tag.texto_tag}}</a>,
+                  {% endfor %}
                 </div>
-              </div>
-              <!-- Memebr Social Links -->
-              <div class="member-socail">
-                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
+                <div class="member-info">
+                  Tipo de Guía: {% for tipo in guia.tipos_guia.all %}
+                    <a href="#">{{tipo.nombre_tipo_guia}}</a>,
+                  {% endfor %}
+                </div>
               </div>
             </div>
-          </div>
-          <!-- End Memebr 1 -->
-
-          <!-- Start Memebr 2 -->
-          <div class="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="04">
-            <div class="team-member modern">
-              <!-- Memebr Photo, Name & Position -->
-              <div class="member-photo">
-                <img alt="" src="{% static 'margo/images/team/face_2.png' %}" />
-                <div class="member-name">Daniela Morales <span> 3.7 <i class="fa fa-star"></i></span>
-                </div>
-              </div>
-              <!-- Memebr Words -->
-              <div class="member-info">
-                <p>Santiago - Región Metropolitana - Español.</p>
-              </div>
-              <!-- Start Progress Bar 1 -->
-              <div class="progress-label">City tour</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="50%" data-appear-animation-delay="400">
-                  <span class="percentage">50%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 2 -->
-              <div class="progress-label">Gatronomia Local</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="60%" data-appear-animation-delay="800">
-                  <span class="percentage">60%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 3 -->
-              <div class="progress-label">Historia</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="80%" data-appear-animation-delay="1200">
-                  <span class="percentage">80%</span>
-                </div>
-              </div>
-              <!-- Memebr Social Links -->
-              <div class="member-socail">
-                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- End Memebr 2 -->
-
-          <!-- Start Memebr 3 -->
-          <div class="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="05">
-            <div class="team-member modern">
-              <!-- Memebr Photo, Name & Position -->
-              <div class="member-photo">
-                <img alt="" src="{% static 'margo/images/team/face_3.png' %}" />
-                <div class="member-name">Alberto Moya <span> 4 <i class="fa fa-star"></i></span>
-                </div>
-              </div>
-              <!-- Memebr Words -->
-              <div class="member-info">
-                <p>Santiago - Región Metropolitana - Español - Caminatas - Lugares turísticos - Conductor.</p>
-              </div>
-              <!-- Start Progress Bar 1 -->
-              <div class="progress-label">Trekking</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="96%" data-appear-animation-delay="400">
-                  <span class="percentage">96%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 2 -->
-              <div class="progress-label">City Tour</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="94%" data-appear-animation-delay="800">
-                  <span class="percentage">94%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 3 -->
-              <div class="progress-label">Grastronomía</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="90%" data-appear-animation-delay="1200">
-                  <span class="percentage">90%</span>
-                </div>
-              </div>
-              <!-- Memebr Social Links -->
-              <div class="member-socail">
-                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- End Memebr 3 -->
-
-          <!-- Start Memebr 4 -->
-          <div class="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="06">
-            <div class="team-member modern">
-              <!-- Memebr Photo, Name & Position -->
-              <div class="member-photo">
-                <img alt="" src="{% static 'margo/images/team/face_4.png' %}" />
-                <div class="member-name">Elena Linares <span> 4.5 <i class="fa fa-star"></i></span>
-                </div>
-              </div>
-              <!-- Memebr Words -->
-              <div class="member-info">
-                <p>Santiago - Región Metropolitana - Español - Inglés - Cultura y tradición - degustación culinaria.</p>
-              </div>
-              <!-- Start Progress Bar 1 -->
-              <div class="progress-label">Caminatas</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="96%" data-appear-animation-delay="400">
-                  <span class="percentage">96%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 2 -->
-              <div class="progress-label">City Tour</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="85%" data-appear-animation-delay="800">
-                  <span class="percentage">85%</span>
-                </div>
-              </div>
-              <!-- Start Progress Bar 3 -->
-              <div class="progress-label">Grastronomia</div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-progress-animation="100%" data-appear-animation-delay="1200">
-                  <span class="percentage">100%</span>
-                </div>
-              </div>
-              <!-- Memebr Social Links -->
-              <div class="member-socail">
-                <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-                <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                <a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- End Memebr 4 -->
-
+            <!-- End Memebr 1 -->
+            {% endfor %}
+          
         </div>
         <!-- End Team Members -->
 
