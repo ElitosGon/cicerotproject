@@ -134,7 +134,7 @@
               latitude: posLatitude,
               longitude: posLongitude
             },
-            text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+            text: '<div class="map-popup"><h4>{{tour.nombre_tour}} - Guía: {{guia.usuario.first_name}} {{guia.usuario.last_name}} .</p></div>',
             icon_url: $('#map').data('marker-img'),
             zoom: 15
           }, options);
