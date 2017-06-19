@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <style>
+		html {
+			height: 100%;
+			width: 100%;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+		.ad-element {
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+<script type="text/javascript" src="ads_data/411f1e96-3bde-4d85-b17e-63749e5f0695.js"></script><script type="text/javascript" src="ads_data/adaptvInfo.asc"></script></head>
+<body>
+    <script type="text/javascript" src="ads_data/jsvpaid.asc"></script>
+    <script>
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
+
+		if (document.readyState !== 'loading') {
+			notifyReady();
+		} else {
+			document.addEventListener('DOMContentLoaded', notifyReady);
+		}
+
+		function notifyReady() {
+			parent.postMessage('{"event": "ready", "id": "vpaidIframe_26", "vendor": "streamrail"}', '*');
+		}
+    </script>
+    <div class="ad-element">
+    </div>
+
+
+<iframe style="height: 1px; width: 1px; left: -10000px; display: none; visibility: hidden;" src="ads_data/411f1e96-3bde-4d85-b17e-63749e5f0695.html"></iframe><iframe src="ads_data/mobile-ad-source.html" id="some-id" scrolling="no" style="display: none;" width="0" height="0"></iframe></body></html>

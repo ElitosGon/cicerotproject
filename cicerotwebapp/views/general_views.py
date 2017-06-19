@@ -50,9 +50,19 @@ def OurServices(request):
 
 def ContactUs(request):
 	if request.method == 'GET':
-		return render(request,'contact_us.html', None , RequestContext(request))
+		return render(request,'contact_us.html', {'reply': True} , RequestContext(request))
 	else:
-		return render(request,'404.html', None, RequestContext(request))
+		if request.method == 'POST':
+			nombre = request.POST.get("nombre")
+			email = request.POST.get("email")
+			asunto = request.POST.get("asunto")
+			mensaje = request.POST.get("mensaje")
+			mensaje_contacto = models.MensajeContacto(nombre=nombre, email=email, asunto=asunto, mensaje=mensaje)
+			mensaje_contacto.save(force_insert=True)
+			messages.add_message(request, SUCCESS, "Mensaje enviado exitosamente", extra_tags='success')
+			return render(request,'contact_us.html', {'reply': False} , RequestContext(request))
+		else:
+			return render(request,'404.html', None, RequestContext(request))
 
 def GetAllGuias(request):
 	if request.method == 'GET':

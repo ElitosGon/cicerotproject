@@ -439,3 +439,16 @@ class Comentario(models.Model):
 	def __str__(self):
 		return "%s" % (self.texto_comentario)
 	
+class MensajeContacto(models.Model):
+	#SIMPLE FIELD
+	nombre = models.CharField(max_length=255, verbose_name="Nombre", null=True, blank=True)
+	email = models.CharField(max_length=255, verbose_name="Email", null=True, blank=True)
+	asunto = models.CharField(max_length=255, verbose_name="Asunto", null=True, blank=True)
+	mensaje = models.TextField(max_length=400, verbose_name="Mensaje", blank=True, null=True)
+
+	# TIMESTAMP FIELD
+	created_at = models.DateTimeField(auto_now_add=True, blank=True, verbose_name="Fecha creación")
+	updated_at = models.DateTimeField(auto_now=True, blank=True, verbose_name="Fecha última modificación")
+
+	def __str__(self):
+		return "%s" % (self.asunto)

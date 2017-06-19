@@ -118,6 +118,9 @@ class ComentarioAdmin(admin.ModelAdmin):
 	list_display = ('texto_comentario', 'created_at', 'updated_at')
 	list_filter = ['created_at', 'updated_at']
 
+class MensajeContactoAdmin(admin.ModelAdmin):
+	list_display = ('nombre', 'email', 'asunto', 'mensaje', 'created_at', 'updated_at')
+	list_filter = ['created_at', 'updated_at']
 
 admin.site.register(models.Region, RegionAdmin)
 admin.site.register(models.Provincia, ProvinciaAdmin)
@@ -148,3 +151,4 @@ admin.site.register(models.Inscripcion, InscripcionAdmin)
 admin.site.register(models.TipoServicio, TipoServicioAdmin)
 admin.site.register(models.ServicioTour, ServicioTourAdmin)
 admin.site.register(models.Comentario, ComentarioAdmin)
+admin.site.register(models.MensajeContacto, MensajeContactoAdmin)

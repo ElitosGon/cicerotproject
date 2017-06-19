@@ -1,0 +1,27 @@
+.navbar-brand {
+    float: center;
+    height: 50px;
+    padding: 1px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-header {
+    float: left;
+    padding-left: 45px;
+}
+.navbar-home{
+	background-color: #102434; 
+}
+
+.text-footer{
+	color: white;
+}
+
+.breadcrumb{
+	background-color: white;
+}
+
+.boton:hover {
+     background-position: 0px;
+}

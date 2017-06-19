@@ -9,7 +9,7 @@
 {% block content %}
 
     <!-- Start Map -->
-    <div id="map" data-position-latitude="23.858092" data-position-longitude="90.262181"></div>
+    <div id="map" data-position-latitude="-33.449712" data-position-longitude="-70.687225"></div>
     <script>
       (function($) {
         $.fn.CustomMap = function(options) {
@@ -168,14 +168,17 @@
 
           <div class="col-md-8">
 
+            
             <!-- Classic Heading -->
-            <h4 class="classic-title"><span>Contact Us</span></h4>
+            <h4 class="classic-title"><span>Contactanos</span></h4>
 
+            {% if reply %}
             <!-- Start Contact Form -->
             <form role="form" class="contact-form" id="contact-form" method="post">
+            {% csrf_token %}
               <div class="form-group">
                 <div class="controls">
-                  <input type="text" placeholder="Name" name="name">
+                  <input type="text" placeholder="Nombre" name="nombre">
                 </div>
               </div>
               <div class="form-group">
@@ -185,52 +188,54 @@
               </div>
               <div class="form-group">
                 <div class="controls">
-                  <input type="text" class="requiredField" placeholder="Subject" name="subject">
+                  <input type="text" class="requiredField" placeholder="Asunto" name="asunto">
                 </div>
               </div>
 
               <div class="form-group">
 
                 <div class="controls">
-                  <textarea rows="7" placeholder="Message" name="message"></textarea>
+                  <textarea rows="7" placeholder="Mensaje" name="mensaje"></textarea>
                 </div>
               </div>
-              <button type="submit" id="submit" class="btn-system btn-large">Send</button>
+              <button type="submit" id="submit" class="btn-system btn-large">Enviar</button>
               <div id="success" style="color:#34495e;"></div>
             </form>
             <!-- End Contact Form -->
+            {% else %}
+             <h4 class="classic-title"><span>Mensaje enviado con éxito</span></h4>
+            {% endif %}
 
           </div>
 
           <div class="col-md-4">
 
             <!-- Classic Heading -->
-            <h4 class="classic-title"><span>Information</span></h4>
+            <h4 class="classic-title"><span>Información de Contacto</span></h4>
 
             <!-- Some Info -->
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum.</p>
+            <p>Comunícate con nosotros a través de estos medios y un agente de nuestra mesa de atención se comunicara contigo.</p>
 
             <!-- Divider -->
             <div class="hr1" style="margin-bottom:10px;"></div>
 
             <!-- Info - Icons List -->
             <ul class="icons-list">
-              <li><i class="fa fa-globe">  </i> <strong>Address:</strong> 1234 Street Name, Bangladesh.</li>
-              <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong> info@yourcompany.com</li>
-              <li><i class="fa fa-mobile"></i> <strong>Phone:</strong> +12 345 678 001</li>
+              <li><i class="fa fa-globe">  </i> <strong>Dirección:</strong> Santiago, Región Metropolitana, Chile.</li>
+              <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong> contacto@cicerot.com</li>
+              <li><i class="fa fa-mobile"></i> <strong>Teléfono:</strong> +56 981 887 136</li>
             </ul>
 
             <!-- Divider -->
             <div class="hr1" style="margin-bottom:15px;"></div>
 
             <!-- Classic Heading -->
-            <h4 class="classic-title"><span>Working Hours</span></h4>
+            <h4 class="classic-title"><span>Horario de trabajo</span></h4>
 
             <!-- Info - List -->
             <ul class="list-unstyled">
-              <li><strong>Monday - Friday</strong> - 9am to 5pm</li>
-              <li><strong>Saturday</strong> - 9am to 2pm</li>
-              <li><strong>Sunday</strong> - Closed</li>
+              <li><strong>Lunes - Viernes</strong> - 8:30 am a 6:30 pm</li>
+              <li><strong>Sábado y Domingo</strong> - 8:30 am to 1:00 pm</li>
             </ul>
 
           </div>

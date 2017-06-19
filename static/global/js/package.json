@@ -1,0 +1,16 @@
+{
+  "name": "medgo-package",
+  "version": "1.0.0",
+  "description": "Packetes Js para medgo chile, static files",
+  "main": "ie-emulation-modes-warning.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"Oferus sales\"",
+  "license": "ISC",
+  "dependencies": {
+    "@claviska/jquery-alertable": "^1.0.2",
+    "bootstrap-select": "^1.12.1",
+    "jquery": "^3.1.1"
+  }
+}
