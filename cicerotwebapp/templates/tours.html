@@ -1,0 +1,99 @@
+{% extends "home.html" %}
+<!-- field atributes modificaciones / atributo concreto form.nombre-->
+{{ form.media.css }}
+
+{% load static %}
+
+{{ form.media.css }}
+
+{% block content %}
+
+    <!-- Start Page Banner -->
+    <div class="page-banner" style="padding:40px 0; background: url('{% static 'margo/images/slide-02-bg.jpg'%}') center #f9f9f9;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Tours</h2>
+            <p>Encuentra tu tour</p>
+          </div>
+          <div class="col-md-6">
+            <ul class="breadcrumbs">
+              <li><a href="{% url 'cicerotwebapp:home' %}">Home</a></li>
+              <li>Tours</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Banner -->
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="page-content">
+
+           <!-- Classic Heading -->
+          <h4 class="classic-title"><span>Tours ofrecidos por nuestros guias - Busca un tour de tu interes</span></h4>
+          <div class="widget widget-search">
+            <form role="form" class="contact-form" id="form" method="GET" action="">
+              <input placeholder="Lugares, nombre, comunas, tipo de guía, etc ..." type="search" name="search" value="{{ request.GET.search }}">
+              <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+             {% for tour in tours %}
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-4">
+                <i class="fa fa-angle-up control-icon"></i>
+                <i class="fa fa-info"></i> Tour: {{tour.nombre_tour}} {% if tour.es_oferta %} ***** OFERTA ***** {% endif %}
+                <p>Guía: {{tour.guia.usuario.first_name}} {{tour.guia.usuario.last_name}}</p>
+                </a>
+                </h4>
+                </div>
+                <div id="collapse-4" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="row">
+                      <dir class="col-md-4">
+                      <a href="{% url 'cicerotwebapp:GetTour' tour.id %}">
+                        <img src="{{tour.multimedia_set.all.0.archivo_multimedia.url}}">
+                      </a>
+                      </dir>
+                      <dir class="col-md-8">
+                          <ul>
+                             <li><i class="fa fa-caret-right"></i> Nombre Tour {{tour.nombre_tour}}</li>
+                             <li class="descrip"><i class="fa fa-caret-right"></i> Descripción: {{tour.descripcion_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Capacidad: {{tour.capacidad_tour}} </li>
+                             <li><i class="fa fa-caret-right"></i> Precio: ${{tour.precio_tour}}</li>
+                             <li><i class="fa fa-caret-right"></i> Tipo Tour: {{tour.tipo_tour.nombre_tipo_tour}}</li>
+                             <li><a href="{% url 'cicerotwebapp:GetTour' tour.id %}"> Ver detalle </a></li>
+                            </ul>
+                      </dir>
+                  </div>
+                </div>
+                </div>
+                </div>
+             {% endfor %}
+
+             </div>
+
+             
+            </div>
+
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+    <!-- End content -->
+   
+
+{% endblock %}
+

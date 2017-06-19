@@ -129,3 +129,29 @@ def GetTour(request, id):
 		return render(request,'tour.html', contexto , RequestContext(request))
 	else:
 		return render(request,'404.html', None, RequestContext(request))
+
+def GetAllTours(request):
+	if request.method == 'GET':
+
+		turistas_list = models.Tour.objects.all().order_by('-updated_at')
+		search = request.GET.get("search")
+		tours = None
+
+		if search:
+			tours = turistas_list.filter(Q(nombre_tour__contains=search)
+										|Q(descripcion_tour__contains=search)
+										|Q(guia__usuario__first_name__contains=search)
+										|Q(guia__usuario__last_name__contains=search)
+										|Q(guia__tags__texto_tag__contains=search)).distinct()
+		else:
+			tours = turistas_list
+
+
+		contexto = {
+			'tours' : tours,
+			'multimedia': models.Multimedia.objects.all(),
+		}
+
+		return render(request,'tours.html', contexto , RequestContext(request))
+	else:
+		return render(request,'404.html', None, RequestContext(request))
