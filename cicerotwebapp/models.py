@@ -293,10 +293,10 @@ class Multimedia(models.Model):
 	archivo_multimedia = models.FileField(verbose_name="Archivo multimedia" ,upload_to='documentos/multimedia/%Y/%m/%d', null=True, blank=True)
 
 	# RELATION FIELD
-	tour = models.ForeignKey(Tour, verbose_name="Tour", null=True, blank=True, related_name='items')
+	tour = models.ForeignKey(Tour, verbose_name="Tour", null=True, blank=True)
 	tipo_multimedia = models.ForeignKey(TipoMultimedia, verbose_name="Tipo multimedia", null=True, blank=True)
-	usuario = models.ForeignKey(auth.models.User, verbose_name="Usuario", null=True, blank=True, related_name='items')
-	actividad = models.ForeignKey(Actividad, verbose_name="Actividad", null=True, blank=True, related_name='items')
+	usuario = models.ForeignKey(auth.models.User, verbose_name="Usuario", null=True, blank=True)
+	actividad = models.ForeignKey(Actividad, verbose_name="Actividad", null=True, blank=True)
 
 	# TIMESTAMP FIELD
 	created_at = models.DateTimeField(auto_now_add=True, blank=True, verbose_name="Fecha creación")
