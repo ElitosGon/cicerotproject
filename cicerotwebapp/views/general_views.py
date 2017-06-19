@@ -114,8 +114,18 @@ def GetAllLugares(request):
 	else:
 		return render(request,'404.html', None, RequestContext(request))
 
-def GetTour(request):
+def GetTour(request, id):
 	if request.method == 'GET':
-		return render(request,'tour.html', None , RequestContext(request))
+		try:
+			tour = models.Tour.objects.get(pk=id)
+		except models.Guia.DoesNotExist:
+			raise Http404
+
+		contexto = {
+			'tour': tour,
+			'guia': tour.guia,
+		}
+
+		return render(request,'tour.html', contexto , RequestContext(request))
 	else:
 		return render(request,'404.html', None, RequestContext(request))
