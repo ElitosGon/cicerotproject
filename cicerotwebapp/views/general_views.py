@@ -66,7 +66,26 @@ def ContactUs(request):
 
 def GetAllGuias(request):
 	if request.method == 'GET':
-		return render(request,'guias.html', None , RequestContext(request))
+
+		guias_list = models.Guia.objects.all().order_by('-updated_at')
+		search = request.GET.get("search")
+		guias = None
+
+		if search:
+			guias = guias_list.filter(Q(tags__texto_tag__contains=search)
+									 |Q(tipos_guia__nombre_tipo_guia__contains=search)
+									 |Q(usuario__first_name__contains=search)
+									 |Q(usuario__last_name__contains=search)).distinct()
+		else:
+			guias = guias_list
+
+
+		contexto = {
+			'guias' : guias,
+			'multimedia': models.Multimedia.objects.all(),
+		}
+
+		return render(request,'guias.html', contexto , RequestContext(request))
 	else:
 		return render(request,'404.html', None, RequestContext(request))
 

@@ -44,7 +44,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'margo/css/colors/red.css' %}" title="red" media="screen" />
     <link rel="stylesheet" type="text/css" href="{% static 'margo/css/colors/cyan.css' %}" title="cyan" media="screen" />
     
+    <style type="text/css">
+      .descrip {
+         overflow: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         line-height: 16px;     /* fallback */
+         max-height: 80px;      /* fallback */
+         -webkit-line-clamp: 5; /* number of lines to show */
+         -webkit-box-orient: vertical;
+      }
 
+    </style>
     {% endblock %}
 
 
@@ -274,7 +285,7 @@
                 <h3 class="animated3">
                                 <span>Una experiencia única en cada viaje</span>
                               </h3>
-                <p class="animated4"><a href="#" class="slider btn btn-system btn-large">Buscar un guía</a>
+                <p class="animated4"><a href="{% url 'cicerotwebapp:GetAllGuias' %}" class="slider btn btn-system btn-large">Buscar un guía</a>
                 </p>
               </div>
             </div>
@@ -290,7 +301,7 @@
                 <h3 class="animated5">
                               <span>Contrata un guía turístico</span>
                             </h3>
-                <p class="animated6"><a href="#" class="slider btn btn-system btn-large">Buscar un guía</a>
+                <p class="animated6"><a href="{% url 'cicerotwebapp:GetAllGuias' %}" class="slider btn btn-system btn-large">Buscar un guía</a>
                 </p>
               </div>
             </div>
@@ -307,7 +318,7 @@
                               <span>Cientos de actividades a lo largo del pais</span>
                             </h3>
                 <div class="">
-                  <p class="animated6"><a href="#" class="slider btn btn-system btn-large">Buscar un guía</a>
+                  <p class="animated6"><a href="{% url 'cicerotwebapp:GetAllGuias' %}" class="slider btn btn-system btn-large">Buscar un guía</a>
                 </div>
               </div>
             </div>
